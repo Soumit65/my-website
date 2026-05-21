@@ -1,10 +1,479 @@
+# Multidimensional GitHub Portfolio Website
+
+Copy this entire code into your `index.html` file.
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soumit | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #050816;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at top left, rgba(0,119,255,0.15), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(128,0,255,0.15), transparent 35%);
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 8, 22, 0.75);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #66b3ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #66b3ff;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 120px 8% 80px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #66b3ff;
+        }
+
+        .hero-text p {
+            color: #d6d6d6;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            max-width: 700px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .primary {
+            background: linear-gradient(135deg, #0077ff, #6a00ff);
+            color: white;
+        }
+
+        .primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0,119,255,0.35);
+        }
+
+        .secondary {
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .secondary:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 330px;
+            border-radius: 24px;
+            border: 2px solid rgba(255,255,255,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #66b3ff;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            max-width: 850px;
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 24px;
+            transition: 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102,179,255,0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: #66b3ff;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #d5d5d5;
+            line-height: 1.7;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #cfcfcf;
+        }
+
+        @media(max-width: 900px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <h1>Hello World</h1>
-  <p>This website is hosted on GitHub Pages.</p>
+
+    <nav>
+        <div class="logo">Soumit</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#physics">Physics</a></li>
+            <li><a href="#engineering">Engineering</a></li>
+            <li><a href="#music">Music & Books</a></li>
+            <li><a href="#interests">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="about">
+
+        <div class="hero-text">
+            <h1>
+                Hi, I'm <span>Soumit</span><br>
+                Physics Student & Curious Builder
+            </h1>
+
+            <p>
+                I work on astronomy image processing, computational physics,
+                Python programming, machine learning ideas, and scientific visualization.
+                Beyond academics, I love music, books, engineering systems,
+                aerospace concepts, and exploring how different fields connect together.
+            </p>
+
+            <div class="buttons">
+                <a href="https://github.com/soumit65" class="btn primary">GitHub</a>
+                <a href="#physics" class="btn secondary">Explore My Work</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1000&auto=format&fit=crop" alt="Astronomy">
+        </div>
+
+    </section>
+
+    <section id="physics">
+
+        <h2 class="section-title">Physics & Astronomy</h2>
+
+        <p class="section-subtitle">
+            My academic interests include astrophysics, thermodynamics,
+            fluid dynamics, wave mechanics, computational physics,
+            solar astronomy, and mathematical modeling.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Solar Astronomy</h3>
+                <p>
+                    Working on sunspot detection in H-alpha and Calcium images
+                    using Python image processing and thresholding methods.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Computational Physics</h3>
+                <p>
+                    Building scientific tools, Python libraries,
+                    simulations, and data analysis workflows.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Fluid Dynamics</h3>
+                <p>
+                    Interested in Navier-Stokes equations, weather modeling,
+                    vortex dynamics, and mathematical physics.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="engineering">
+
+        <h2 class="section-title">Engineering & Technology</h2>
+
+        <p class="section-subtitle">
+            I enjoy exploring engineering ideas across aerospace,
+            electronics, embedded systems, robotics, and scientific computing.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Aerospace</h3>
+                <p>
+                    Fascinated by propulsion systems, orbital mechanics,
+                    aircraft engineering, and spacecraft design.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Programming</h3>
+                <p>
+                    Building projects in Python involving simulations,
+                    data analysis, machine learning, and visualization.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Scientific Computing</h3>
+                <p>
+                    Interested in numerical methods, computational modeling,
+                    and solving real-world scientific problems.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="music">
+
+        <h2 class="section-title">Music & Books</h2>
+
+        <p class="section-subtitle">
+            Science is one side of me. Music and literature are another.
+            I love discovering meaningful albums, cinematic soundtracks,
+            thoughtful writing, and imaginative stories.
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Music</h3>
+                <p>
+                    Add your favorite artists, genres, albums, playlists,
+                    or songs that matter to you.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Books</h3>
+                <p>
+                    Showcase books you enjoy — physics, fantasy,
+                    science fiction, philosophy, biographies, or anything else.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Creativity</h3>
+                <p>
+                    I enjoy ideas that combine science, storytelling,
+                    imagination, and human curiosity.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="interests">
+
+        <h2 class="section-title">Other Interests</h2>
+
+        <div class="tags">
+            <div class="tag">Astronomy</div>
+            <div class="tag">Machine Learning</div>
+            <div class="tag">Mathematics</div>
+            <div class="tag">Aerospace</div>
+            <div class="tag">Python</div>
+            <div class="tag">Engineering</div>
+            <div class="tag">Scientific Visualization</div>
+            <div class="tag">Fluid Dynamics</div>
+            <div class="tag">Robotics</div>
+            <div class="tag">Electronics</div>
+            <div class="tag">Books</div>
+            <div class="tag">Music</div>
+            <div class="tag">Space Technology</div>
+            <div class="tag">Weather Modeling</div>
+        </div>
+
+    </section>
+
+    <section id="contact">
+
+        <h2 class="section-title">Contact</h2>
+
+        <p class="section-subtitle">
+            You can connect with me through GitHub or add your socials here.
+        </p>
+
+        <div class="buttons">
+            <a href="https://github.com/soumit65" class="btn primary">GitHub</a>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>
+            Built by Soumit • Physics • Astronomy • Engineering • Music • Curiosity
+        </p>
+    </footer>
+
 </body>
 </html>
+```
+
+## How to use it
+
+1. Open your GitHub repository.
+2. Replace the current `index.html` with this code.
+3. Commit changes.
+4. Wait 1–2 minutes for GitHub Pages to update.
+5. Refresh your site.
+
+## Next upgrades you can add later
+
+* Animated stars background
+* Dark/light mode toggle
+* Project gallery section
+* Blog section
+* Interactive physics simulations
+* Music playlist embeds
+* Book shelf section
+* Resume download button
+* Research papers section
+* Custom domain name
+
+
+
+
