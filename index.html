@@ -1,3 +1,7 @@
+<!-- ========================================================= -->
+<!-- ======================= index.html ====================== -->
+<!-- ========================================================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,265 +10,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Soumit | Physics & Astronomy</title>
+    <title>Soumit | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #050816;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at top left, rgba(0,119,255,0.15), transparent 30%),
-                radial-gradient(circle at bottom right, rgba(128,0,255,0.15), transparent 35%);
-            z-index: -1;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(5, 8, 22, 0.75);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #66b3ff;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 22px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            transition: 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #66b3ff;
-        }
-
-        section {
-            padding: 90px 8% 60px;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 4.2rem;
-            line-height: 1.1;
-            margin-bottom: 18px;
-        }
-
-        .hero-text span {
-            color: #66b3ff;
-        }
-
-        .hero-text p {
-            max-width: 750px;
-            color: #d7d7d7;
-            line-height: 1.8;
-            font-size: 1.08rem;
-        }
-
-        .buttons {
-            margin-top: 28px;
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 26px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s ease;
-        }
-
-        .primary {
-            background: linear-gradient(135deg, #0077ff, #6a00ff);
-            color: white;
-        }
-
-        .secondary {
-            border: 1px solid rgba(255,255,255,0.15);
-            color: white;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .hero-image img {
-            width: 330px;
-            border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-            border: 2px solid rgba(255,255,255,0.08);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #66b3ff;
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            max-width: 850px;
-            color: #d2d2d2;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 22px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 22px;
-            padding: 28px;
-            backdrop-filter: blur(10px);
-            transition: 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(102,179,255,0.35);
-        }
-
-        .card h3 {
-            color: #66b3ff;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: #d5d5d5;
-            line-height: 1.7;
-        }
-
-        .project-list {
-            margin-top: 20px;
-        }
-
-        .project-list li {
-            margin-bottom: 18px;
-            font-size: 1.05rem;
-        }
-
-        .project-list a {
-            color: #8ec5ff;
-            text-decoration: none;
-            transition: 0.3s ease;
-        }
-
-        .project-list a:hover {
-            color: white;
-        }
-
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-grid img {
-            width: 100%;
-            border-radius: 18px;
-            height: 250px;
-            object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 20px;
-        }
-
-        .tag {
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            color: #cfcfcf;
-        }
-
-        @media(max-width: 900px) {
-
-            nav ul {
-                display: none;
-            }
-
-            .hero {
-                text-align: center;
-                flex-direction: column-reverse;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-        }
-
-    </style>
 
 </head>
 
@@ -275,32 +29,28 @@
         <div class="logo">Soumit</div>
 
         <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#photos">Photos</a></li>
-            <li><a href="#books">Books</a></li>
-            <li><a href="#music">Music</a></li>
-            <li><a href="#interests">Interests</a></li>
+            <li><a href="physics.html">Physics</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="books.html">Books & Movies</a></li>
+            <li><a href="coolstuff.html">Cool Things</a></li>
         </ul>
 
     </nav>
 
-    <section class="hero" id="about">
+    <section class="hero">
 
         <div class="hero-text">
 
             <h1>
-                Exploring <span>Physics</span>, Astronomy,<br>
+                Exploring <span>Physics</span>, Astronomy,
                 Engineering & Creativity
             </h1>
 
             <p>
                 I'm Soumit, a physics student interested in astronomy,
-                computational physics, solar observations, scientific computing,
-                and engineering systems. My work includes solar image analysis,
-                sunspot tracking, computational astronomy, and data-driven physics.
-                Beyond academics, I love music, books, space technology,
-                aerospace ideas, and creative exploration.
+                solar observations, computational physics,
+                scientific computing, engineering systems,
+                music, books, and creative exploration.
             </p>
 
             <div class="buttons">
@@ -323,147 +73,96 @@
 
         <div class="hero-image">
 
-            <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1000&auto=format&fit=crop"
-                 alt="Astronomy">
+            <!-- Replace with your own image -->
+            <img src="images/me.jpg" alt="Soumit">
 
         </div>
 
     </section>
 
-    <section id="projects">
+    <section class="cards-section">
 
-        <h2 class="section-title">Projects & Research</h2>
+        <div class="main-grid">
 
-        <p class="section-subtitle">
-            Research projects involving solar physics,
-            astronomy observations, image processing,
-            and scientific computing.
-        </p>
+            <a href="physics.html" class="main-card">
 
-        <ul class="project-list">
+                <img src="images/sunspot.jpg" alt="Physics">
 
-            <li>
-                <a href="https://github.com/Soumit65" target="_blank">
-                    Sunspot Tracking & Area Measurement using White-Light Solar Imaging
-                </a>
-            </li>
+                <div class="card-content">
 
-            <li>
-                <a href="https://github.com/Soumit65" target="_blank">
-                    Solar Image Processing in H-alpha & Calcium Observations
-                </a>
-            </li>
+                    <h2>Physics & Astronomy</h2>
 
-            <li>
-                <a href="https://github.com/Soumit65" target="_blank">
-                    Alpha Centauri Rotation Period Analysis using CUTE CubeSat Data
-                </a>
-            </li>
+                    <p>
+                        Solar physics, astronomy,
+                        computational analysis,
+                        telescope observations,
+                        and research projects.
+                    </p>
 
-        </ul>
+                </div>
 
-    </section>
+            </a>
 
-    <section id="photos">
+            <a href="music.html" class="main-card">
 
-        <h2 class="section-title">Photography & Observations</h2>
+                <img src="images/music.jpg" alt="Music">
 
-        <p class="section-subtitle">
-            A place for telescope observations,
-            astrophotography, solar images,
-            and personal photography.
-        </p>
+                <div class="card-content">
 
-        <div class="photo-grid">
+                    <h2>Music</h2>
 
-            <img src="YOUR_IMAGE_HERE.jpg" alt="">
-            <img src="YOUR_IMAGE_HERE.jpg" alt="">
-            <img src="YOUR_IMAGE_HERE.jpg" alt="">
+                    <p>
+                        Soundtracks, playlists,
+                        albums, artists,
+                        and music I keep returning to.
+                    </p>
 
-        </div>
+                </div>
 
-    </section>
+            </a>
 
-    <section id="books">
+            <a href="books.html" class="main-card">
 
-        <h2 class="section-title">Books & Textbooks</h2>
+                <img src="images/books.jpg" alt="Books">
 
-        <p class="section-subtitle">
-            Books and textbooks that shaped the way I think about physics,
-            mathematics, engineering, science fiction, and creativity.
-        </p>
+                <div class="card-content">
 
-        <div class="grid">
+                    <h2>Books & Movies</h2>
 
-            <div class="card">
-                <h3>Physics & Mathematics</h3>
-                <p>
-                    Add your favorite textbooks here.
-                </p>
-            </div>
+                    <p>
+                        Science fiction,
+                        textbooks,
+                        philosophy,
+                        cinema, and storytelling.
+                    </p>
 
-            <div class="card">
-                <h3>Science Fiction & Literature</h3>
-                <p>
-                    Add novels, philosophy, biographies,
-                    or books you deeply enjoy.
-                </p>
-            </div>
+                </div>
 
-        </div>
+            </a>
 
-    </section>
+            <a href="coolstuff.html" class="main-card">
 
-    <section id="music">
+                <img src="images/engineering.jpg" alt="Engineering">
 
-        <h2 class="section-title">Music</h2>
+                <div class="card-content">
 
-        <p class="section-subtitle">
-            Music I return to while studying,
-            coding, thinking, or simply existing.
-        </p>
+                    <h2>Cool Things</h2>
 
-        <div class="card">
+                    <p>
+                        Engineering,
+                        aerospace,
+                        LEGO,
+                        robotics,
+                        technology, and curiosity.
+                    </p>
 
-            <h3>Spotify Playlist</h3>
+                </div>
 
-            <p>
-               https://open.spotify.com/playlist/4J4Deecswr9ep0rG7q4b8K?si=eb74990c8f434e03
-            </p>
+            </a>
 
         </div>
 
     </section>
-
-    <section id="interests">
-
-        <h2 class="section-title">Interests</h2>
-
-        <div class="tags">
-
-            <div class="tag">Astronomy</div>
-            <div class="tag">Computational Physics</div>
-            <div class="tag">Solar Physics</div>
-            <div class="tag">Machine Learning</div>
-            <div class="tag">Aerospace</div>
-            <div class="tag">Electronics</div>
-            <div class="tag">Scientific Computing</div>
-            <div class="tag">Books</div>
-            <div class="tag">Music</div>
-            <div class="tag">Fluid Dynamics</div>
-            <div class="tag">Weather Modeling</div>
-
-        </div>
-
-    </section>
-
-    <footer>
-
-        <p>
-            Built by Soumit • Physics • Astronomy • Engineering • Curiosity
-        </p>
-
-    </footer>
 
 </body>
 
